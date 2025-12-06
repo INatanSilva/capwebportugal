@@ -24,6 +24,18 @@
   gap: 3rem;
   width: 100%;
   max-width: 500px;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Ícones de Redes Sociais */
@@ -31,6 +43,18 @@
   display: flex;
   gap: 2rem;
   align-items: center;
+  animation: fadeInDown 0.8s ease-out 0.2s both;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .social-link {
@@ -42,28 +66,76 @@
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.8);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   color: #333;
   text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.social-link::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.social-link:hover::before {
+  width: 300px;
+  height: 300px;
 }
 
 .social-link svg {
   width: 24px;
   height: 24px;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+.social-link:hover svg {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.social-link.instagram {
+  animation: pulse 2s ease-in-out infinite;
+  animation-delay: 0.4s;
+}
+
+.social-link.facebook {
+  animation: pulse 2s ease-in-out infinite;
+  animation-delay: 0.6s;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
 }
 
 .social-link.instagram:hover {
   background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
   color: white;
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(225, 48, 108, 0.3);
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 8px 25px rgba(225, 48, 108, 0.4);
+  animation: none;
 }
 
 .social-link.facebook:hover {
   background: #1877f2;
   color: white;
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(24, 119, 242, 0.3);
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 8px 25px rgba(24, 119, 242, 0.4);
+  animation: none;
 }
 
 /* Botão Missões */
@@ -76,19 +148,47 @@
   font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   box-shadow: 0 4px 15px rgba(251, 191, 36, 0.4);
   min-width: 280px;
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 0.8s ease-out 0.4s both, buttonGlow 3s ease-in-out infinite;
+}
+
+@keyframes buttonGlow {
+  0%, 100% {
+    box-shadow: 0 4px 15px rgba(251, 191, 36, 0.4);
+  }
+  50% {
+    box-shadow: 0 4px 25px rgba(251, 191, 36, 0.6), 0 0 30px rgba(251, 191, 36, 0.3);
+  }
+}
+
+.btn-missoes::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.btn-missoes:hover::before {
+  left: 100%;
 }
 
 .btn-missoes:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 25px rgba(251, 191, 36, 0.5);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 8px 30px rgba(251, 191, 36, 0.6), 0 0 40px rgba(251, 191, 36, 0.4);
   background: linear-gradient(135deg, #fcd34d 0%, #fbbf24 50%, #f59e0b 100%);
+  animation: none;
 }
 
 .btn-missoes:active {
-  transform: translateY(0);
+  transform: translateY(-2px) scale(0.98);
 }
 
 /* Popup Overlay */
@@ -124,16 +224,16 @@
   width: 100%;
   position: relative;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-  animation: slideUp 0.3s ease;
+  animation: slideUpScale 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-@keyframes slideUp {
+@keyframes slideUpScale {
   from {
-    transform: translateY(20px);
+    transform: translateY(30px) scale(0.9);
     opacity: 0;
   }
   to {
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
     opacity: 1;
   }
 }
@@ -153,12 +253,14 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
+  line-height: 1;
 }
 
 .popup-close:hover {
   background: #f5f5f5;
   color: #333;
+  transform: rotate(90deg) scale(1.1);
 }
 
 .popup-title {
@@ -188,22 +290,72 @@
   border-radius: 12px;
   padding: 1.2rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: relative;
+  overflow: hidden;
+  animation: slideInLeft 0.5s ease-out both;
+}
+
+.mbway-number:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.mbway-number:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.mbway-number::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.5s;
+}
+
+.mbway-number:hover::before {
+  left: 100%;
 }
 
 .mbway-number:hover {
   border-color: #667eea;
   background: linear-gradient(135deg, #e8ecf1 0%, #dde4eb 100%);
-  transform: translateX(5px);
+  transform: translateX(8px) scale(1.02);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
 }
 
 .mbway-number.copied {
   border-color: #4caf50;
   background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+  animation: copiedPulse 0.6s ease-out;
+}
+
+@keyframes copiedPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .mbway-number .number {
@@ -222,7 +374,21 @@
   font-size: 0.9rem;
   color: #4caf50;
   font-weight: 600;
-  animation: fadeIn 0.3s ease;
+  animation: copiedTextBounce 0.5s ease-out;
+}
+
+@keyframes copiedTextBounce {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) translateY(-10px);
+  }
+  50% {
+    transform: scale(1.1) translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 /* Responsive */
