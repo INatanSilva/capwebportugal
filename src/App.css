@@ -38,12 +38,27 @@
   }
 }
 
-/* Ícones de Redes Sociais */
+/* Seção de Redes Sociais */
+.social-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  animation: fadeInDown 0.8s ease-out 0.2s both;
+}
+
+.social-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+  margin: 0;
+}
+
 .social-icons {
   display: flex;
   gap: 2rem;
   align-items: center;
-  animation: fadeInDown 0.8s ease-out 0.2s both;
 }
 
 @keyframes fadeInDown {
@@ -292,11 +307,14 @@
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 0.5rem;
   position: relative;
   overflow: hidden;
   animation: slideInLeft 0.5s ease-out both;
+  text-align: center;
 }
 
 .mbway-number:nth-child(1) {
@@ -359,11 +377,19 @@
 }
 
 .mbway-number .number {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: 600;
   color: #333;
   font-family: 'Courier New', monospace;
   letter-spacing: 1px;
+  flex: 1;
+  text-align: center;
+}
+
+.mbway-number .number-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #666;
 }
 
 .mbway-number.copied .number {
@@ -401,6 +427,14 @@
     gap: 2.5rem;
   }
 
+  .social-section {
+    gap: 1.2rem;
+  }
+
+  .social-title {
+    font-size: 1.1rem;
+  }
+
   .social-icons {
     gap: 1.5rem;
   }
@@ -419,27 +453,59 @@
     padding: 1rem 2rem;
     font-size: 1rem;
     min-width: 100%;
+    max-width: 100%;
   }
 
   .popup-content {
     padding: 1.5rem;
     margin: 1rem;
+    max-width: calc(100% - 2rem);
   }
 
   .popup-title {
     font-size: 1.3rem;
   }
 
+  .popup-subtitle {
+    font-size: 0.85rem;
+  }
+
   .mbway-number {
     padding: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
   }
 
   .mbway-number .number {
-    font-size: 1.1rem;
+    font-size: 1rem;
+    text-align: left;
+    word-break: break-all;
+  }
+
+  .mbway-number .number-label {
+    font-size: 0.85rem;
   }
 }
 
 @media (max-width: 480px) {
+  .app {
+    padding: 1rem;
+  }
+
+  .container {
+    gap: 2rem;
+  }
+
+  .social-section {
+    gap: 1rem;
+  }
+
+  .social-title {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
   .social-icons {
     gap: 1rem;
   }
@@ -457,5 +523,37 @@
   .btn-missoes {
     font-size: 0.95rem;
     padding: 0.9rem 1.5rem;
+    min-width: 100%;
+  }
+
+  .popup-content {
+    padding: 1.2rem;
+    margin: 0.5rem;
+    max-width: calc(100% - 1rem);
+  }
+
+  .popup-title {
+    font-size: 1.2rem;
+  }
+
+  .popup-subtitle {
+    font-size: 0.8rem;
+  }
+
+  .mbway-number {
+    padding: 0.9rem;
+  }
+
+  .mbway-number .number {
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+  }
+
+  .mbway-number .number-label {
+    font-size: 0.8rem;
+  }
+
+  .copied-text {
+    font-size: 0.8rem;
   }
 }

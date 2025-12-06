@@ -19,7 +19,9 @@ function App() {
     <div className="app">
       <div className="container">
         {/* Ícones de Redes Sociais */}
-        <div className="social-icons">
+        <div className="social-section">
+          <h2 className="social-title">Siga as nossas redes sociais</h2>
+          <div className="social-icons">
           <a 
             href="https://www.instagram.com/cap_portugal/" 
             target="_blank" 
@@ -43,6 +45,7 @@ function App() {
               <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
             </svg>
           </a>
+          </div>
         </div>
 
         {/* Botão de Ajudar Missões */}
@@ -50,7 +53,7 @@ function App() {
           className="btn-missoes"
           onClick={() => setShowPopup(true)}
         >
-          Ajudar as Missões Portugal 2025
+          Ajudar a CAP Portugal
         </button>
       </div>
 
@@ -65,16 +68,17 @@ function App() {
             >
               ×
             </button>
-            <h3 className="popup-title">MBWay</h3>
-            <p className="popup-subtitle">Clique no número para copiar</p>
+            <h3 className="popup-title">Contribuir</h3>
+            <p className="popup-subtitle">Clique para copiar</p>
             
             <div className="mbway-numbers">
               <div 
-                className={`mbway-number ${copiedNumber === '960314621' ? 'copied' : ''}`}
-                onClick={() => copyToClipboard('960314621')}
+                className={`mbway-number ${copiedNumber === 'PT50 0035 0545 0007 0127 3305 1' ? 'copied' : ''}`}
+                onClick={() => copyToClipboard('PT50 0035 0545 0007 0127 3305 1')}
               >
-                <span className="number">960314621</span>
-                {copiedNumber === '960314621' && (
+                <span className="number-label">IBAN:</span>
+                <span className="number">PT50 0035 0545 0007 0127 3305 1</span>
+                {copiedNumber === 'PT50 0035 0545 0007 0127 3305 1' && (
                   <span className="copied-text">✓ Copiado!</span>
                 )}
               </div>
@@ -83,6 +87,7 @@ function App() {
                 className={`mbway-number ${copiedNumber === '969074425' ? 'copied' : ''}`}
                 onClick={() => copyToClipboard('969074425')}
               >
+                <span className="number-label">MBWay:</span>
                 <span className="number">969074425</span>
                 {copiedNumber === '969074425' && (
                   <span className="copied-text">✓ Copiado!</span>
