@@ -21,7 +21,7 @@ function App() {
         {/* Ícones de Redes Sociais */}
         <div className="social-icons">
           <a 
-            href="https://www.instagram.com" 
+            href="https://www.instagram.com/cap_portugal/" 
             target="_blank" 
             rel="noopener noreferrer"
             className="social-link instagram"
@@ -33,7 +33,7 @@ function App() {
           </a>
           
           <a 
-            href="https://www.facebook.com" 
+            href="https://www.facebook.com/CAPPORTUGAL" 
             target="_blank" 
             rel="noopener noreferrer"
             className="social-link facebook"
