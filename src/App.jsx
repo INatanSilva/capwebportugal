@@ -18,6 +18,14 @@ function App() {
   return (
     <div className="app">
       <div className="container">
+        {/* Versículo */}
+        <div className="verse-section">
+          <p className="verse-text">
+            Honra ao Senhor com a tua fazenda e com as primícias de toda a tua renda; e se encherão os teus celeiros abundantemente, e trasbordarão de mosto os teus lagares.
+          </p>
+          <p className="verse-reference">Provérbios 3:9-10</p>
+        </div>
+
         {/* Ícones de Redes Sociais */}
         <div className="social-section">
           <h2 className="social-title">Siga as nossas redes sociais</h2>
@@ -53,7 +61,7 @@ function App() {
           className="btn-missoes"
           onClick={() => setShowPopup(true)}
         >
-          Ajudar a CAP Portugal
+          Faça a sua oferta
         </button>
       </div>
 
@@ -68,7 +76,7 @@ function App() {
             >
               ×
             </button>
-            <h3 className="popup-title">Contribuir</h3>
+            <h3 className="popup-title">Ofertar</h3>
             <p className="popup-subtitle">Clique para copiar</p>
             
             <div className="mbway-numbers">

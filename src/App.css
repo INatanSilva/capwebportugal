@@ -27,6 +27,37 @@
   animation: fadeInUp 0.8s ease-out;
 }
 
+/* Seção do Versículo */
+.verse-section {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(10px);
+  animation: fadeInUp 0.8s ease-out 0.1s both;
+  max-width: 100%;
+}
+
+.verse-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #333;
+  font-style: italic;
+  margin: 0 0 1rem 0;
+  font-weight: 400;
+}
+
+.verse-reference {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-style: normal;
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -427,6 +458,19 @@
     gap: 2.5rem;
   }
 
+  .verse-section {
+    padding: 1.5rem 1.2rem;
+  }
+
+  .verse-text {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .verse-reference {
+    font-size: 0.85rem;
+  }
+
   .social-section {
     gap: 1.2rem;
   }
@@ -495,6 +539,19 @@
 
   .container {
     gap: 2rem;
+  }
+
+  .verse-section {
+    padding: 1.2rem 1rem;
+  }
+
+  .verse-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .verse-reference {
+    font-size: 0.8rem;
   }
 
   .social-section {
